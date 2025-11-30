@@ -4,7 +4,7 @@ import { join } from 'path';
 
 let dropsSpoilsCache: Record<string, any[]> | null = null;
 
-const loadDropsSpoils = async () => {
+const loadDropsSpoils = async (): Promise<Record<string, any[]>> => {
   if (dropsSpoilsCache) {
     return dropsSpoilsCache;
   }
@@ -13,7 +13,7 @@ const loadDropsSpoils = async () => {
     const filePath = join(process.cwd(), 'data', 'drops-spoils.json');
     const fileContent = await readFile(filePath, 'utf-8');
     dropsSpoilsCache = JSON.parse(fileContent);
-    return dropsSpoilsCache;
+    return dropsSpoilsCache || {};
   } catch (error) {
     console.error('Error loading drops-spoils:', error);
     return {};

@@ -4,7 +4,7 @@ import { join } from 'path';
 
 let itemsCache: any[] | null = null;
 
-async function loadItems() {
+async function loadItems(): Promise<any[]> {
   if (itemsCache) {
     return itemsCache;
   }
@@ -13,7 +13,7 @@ async function loadItems() {
     const filePath = join(process.cwd(), 'data', 'items.json');
     const fileContent = await readFile(filePath, 'utf-8');
     itemsCache = JSON.parse(fileContent);
-    return itemsCache;
+    return itemsCache || [];
   } catch (error) {
     console.error('Error loading items:', error);
     return [];
