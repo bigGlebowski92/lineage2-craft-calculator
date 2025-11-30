@@ -14,6 +14,7 @@
 ## Step 2: Verify Build Settings
 
 After setting the root directory, Vercel should automatically detect:
+
 - **Framework Preset**: Next.js
 - **Build Command**: `npm run build` (or `next build`)
 - **Output Directory**: `.next` (auto-detected)
@@ -29,6 +30,7 @@ After setting the root directory, Vercel should automatically detect:
 ## That's it!
 
 Once the root directory is set to `frontend`, Vercel will:
+
 - Find your `package.json` in `frontend/package.json`
 - Detect Next.js automatically
 - Build and deploy successfully
@@ -36,4 +38,3 @@ Once the root directory is set to `frontend`, Vercel will:
 ---
 
 **Note**: The root directory setting tells Vercel where your Next.js app is located. Since your `package.json` is in the `frontend` folder, that's where Vercel needs to look.
-
